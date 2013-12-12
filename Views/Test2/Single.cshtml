@@ -1,0 +1,60 @@
+﻿@model List<MvcDemo7_2.Models.SingleQ>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+
+    ViewBag.Menu = "<a href=\"http://www.stust.edu.tw\">STUST</a>";
+}
+
+<h2>Index</h2>
+
+<h1> @ViewBag.Ans1</h1>
+<h1> @ViewBag.Ans2</h1>
+
+@section submenu{
+    @Html.ActionLink("單選題","Single","Test") <br />
+    @Html.ActionLink("複選題","Multiple","Test") <br />
+
+    <br />
+
+     @Html.ActionLink("單選題Model","Single","Test2") <br />
+    @Html.ActionLink("複選題Model","Multiple","Test2") <br />
+}
+
+@using (Html.BeginForm())
+{
+    int i=0;
+    foreach (var q in Model)
+    {
+        <table>
+            <tr>
+                <td>第 @i 題</td>
+            </tr>
+            <tr>
+                <td> @q.Question  </td>
+            </tr>
+            <tr>
+                
+                <td>@Html.RadioButtonFor(m=>m[i].SelectedAns,"A"  )   A: @q.A  </td>
+            </tr>
+            <tr>
+                <td>@Html.RadioButtonFor(m=>m[i].SelectedAns ,"B")  B: @q.B   </td>
+            </tr>
+            <tr>
+                <td>@Html.RadioButtonFor(m=>m[i].SelectedAns ,"C")  C: @q.C  </td>
+            </tr>
+            <tr>
+                <td>@Html.RadioButtonFor(m=>m[i].SelectedAns ,"D")  D: @q.D  </td>
+            </tr>
+
+        </table>
+    <br />
+        i++;
+    }
+    
+    <input type="submit" />
+    
+    
+}
+

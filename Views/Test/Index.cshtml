@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+}
+
+<h2>Index</h2>
+
+<h1>請由左側選擇考題</h1>
+
+
+
+@section submenu{
+    @Html.ActionLink("單選題","Single","Test") <br />
+    @Html.ActionLink("複選題","Multiple","Test") <br />
+
+    <br />
+
+     @Html.ActionLink("單選題Model","Single","Test2") <br />
+    @Html.ActionLink("複選題Model","Multiple","Test2") <br />
+}

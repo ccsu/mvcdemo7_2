@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+}
+
+<h2>Main</h2>
+
+<h1>請由左邊選單挑選</h1>
+
+
+@section submenu{
+    @Html.ActionLink("單表維護","Index","Table1") <br />
+    @Html.ActionLink("多表維護","Index","Table2") <br />
+}

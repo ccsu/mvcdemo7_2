@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Single";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+}
+
+<h2>使用RadioButton進行單選題測驗</h2>
+
+<h1>@ViewBag.ans1</h1>
+<h1>@ViewBag.ans2</h1>
+
+
+@section submenu{
+    @Html.ActionLink("單選題","Single","Test") <br />
+    @Html.ActionLink("複選題","Multiple","Test") <br />
+
+    <br />
+
+     @Html.ActionLink("單選題Model","Single","Test2") <br />
+    @Html.ActionLink("複選題Model","Multiple","Test2") <br />
+}
+
+@using (Html.BeginForm())
+{
+    
+    
+  @:一、太陽由哪邊出來? <br />  
+  @:東邊  @Html.RadioButton("q1", "1") <br />
+  @:西邊  @Html.RadioButton("q1", "2") <br />
+  @:南邊  @Html.RadioButton("q1", "3") <br />
+  @:北邊  @Html.RadioButton("q1", "4") <br />
+    
+    <br />
+  @:二、那位是MVC任課教師? <br />  
+  @:陳俊男  @Html.RadioButton("q2", "1") <br />
+  @:蘇建郡  @Html.RadioButton("q2", "2") <br />
+  @:黃惠苓  @Html.RadioButton("q2", "3") <br />
+  @:黃仁鵬  @Html.RadioButton("q2", "4") <br />
+    <br />
+    <input type="submit" />
+}

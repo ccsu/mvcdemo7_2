@@ -1,0 +1,56 @@
+﻿@model List<MvcDemo7_2.Models.MultipleQ>
+@{
+    ViewBag.Title = "Multiple";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+}
+
+<h2>Multiple</h2>
+
+<h1> @ViewBag.Ans </h1>
+
+@section submenu{
+    @Html.ActionLink("單選題","Single","Test") <br />
+    @Html.ActionLink("複選題","Multiple","Test") <br />
+
+    <br />
+
+     @Html.ActionLink("單選題Model","Single","Test2") <br />
+    @Html.ActionLink("複選題Model","Multiple","Test2") <br />
+}
+
+
+@using (Html.BeginForm())
+{
+    int i=0;
+    foreach (var q in Model)
+    {
+        <table>
+            <tr>
+                <td>第 @i 題</td>
+            </tr>
+            <tr>
+                <td> @q.Question  </td>
+            </tr>
+            <tr>
+               <td> @Html.CheckBoxFor(m=>m[i].SelectedAns1 )  A: @q.A 
+                  </td>
+            </tr>
+            <tr>
+                <td> @Html.CheckBoxFor(m=>m[i].SelectedAns2 ) B: @q.B   </td>
+            </tr>
+            <tr>
+                <td> @Html.CheckBoxFor(m=>m[i].SelectedAns3) C: @q.C  </td>
+            </tr>
+            <tr>
+                <td> @Html.CheckBoxFor(m=>m[i].SelectedAns4 )  D: @q.D  </td>
+            </tr>
+
+        </table>
+    <br />
+        i++;
+    }
+    
+    <input type="submit" />
+    
+    
+}

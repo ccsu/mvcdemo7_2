@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+
+<title>WEB PAGE TITLE GOES HERE</title>
+
+    <style type="text/css">
+        .auto-style1 {
+            width: 458px;
+            height: 262px;
+        }
+    </style>
+
+</head>
+
+<body style="margin: 0px; padding: 0px; font-family: 'Trebuchet MS',verdana;">
+
+<table width="100%" style="height: 100%;" cellpadding="10" cellspacing="0" border="0">
+<tr>
+
+<!-- ============ HEADER SECTION ============== -->
+<td colspan="3" style="height: 100px;" bgcolor="#777d6a"><h1>蘇建郡 MVC 教學網站 </h1>
+    </td></tr>
+
+
+<!-- ============ NAVIGATION BAR SECTION ============== -->
+<tr><td colspan="3" valign="middle" height="30" bgcolor="#a9ae9f">
+    @Html.ActionLink("Home","Index","Home")
+    @Html.ActionLink("選擇題","Index","Test")
+    @Html.ActionLink("表單維護","Main","Table1")
+
+    </td></tr>
+
+<tr>
+<!-- ============ LEFT COLUMN (MENU) ============== -->
+<td width="20%" valign="top" bgcolor="#999f8e">
+    選單:<br />
+    @RenderSection("submenu", required:false )
+</td>
+
+<!-- ============ MIDDLE COLUMN (CONTENT) ============== -->
+<td width="55%" valign="top" bgcolor="#d2d8c7">
+
+@RenderBody()
+</td>
+
+<td width="25%" valign="top" bgcolor="#999f8e">相關連結<br />
+    <a href="http://asp.net/mvc">ASP.NET</a>
+    <br />
+    <a href="https://www.facebook.com/will.fans">保哥技術交流中心</a>
+    <br />
+    <a href="http://mvc.tw">twMVC</a>
+    <br />
+</td>
+</tr>
+
+<!-- ============ FOOTER SECTION ============== -->
+<tr><td colspan="3" align="center" height="20" bgcolor="#777d6a">Copyright © 2013 南台科技大學 資管系</td></tr>
+</table>
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,56 @@
+﻿@model MvcDemo7_2.Models.Table1 
+
+@{
+    ViewBag.Title = "Table1Edit";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+
+   
+    List<MvcDemo7_2.Models.Table1> Table1s = ViewBag.table1s as List<MvcDemo7_2.Models.Table1>;
+}
+
+<h2>Table1 表格新增、刪除、修改的功能</h2>
+
+
+@section submenu{
+    @UIHelper.Submenu()
+}
+
+
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+    <legend>編輯 --- 單筆資料編輯</legend>
+    
+        @Html.LabelFor(m=>m.Id) <br />
+        @Html.DisplayFor(m=>m.Id)<br />
+
+    @Html.LabelFor(m=>m.TInt) <br />
+    @Html.EditorFor(m=>m.TInt) <br />
+    
+   @Html.LabelFor(m=>m.TString) <br /> 
+    @Html.TextBoxFor(m=>m.TString) <br />
+    
+     @Html.LabelFor(m=>m.TDateTime) <br />
+    @Html.EditorFor(m=>m.TDateTime) <br />
+
+    @Html.LabelFor(m=>m.TBool ) <br />
+    @Html.EditorFor(m=>m.TBool ) <br />
+
+         @Html.LabelFor(m=>m.TIntList ) <br />
+  
+        @Html.DropDownListFor(m=>m.TIntList, new List<SelectListItem>(){new SelectListItem(){Value = "1",Text = "Test1"},new SelectListItem(){Value = "2",Text = "Test2"}});
+
+    
+  <br />
+    
+    <input type="submit" value="確認修改" /> @Html.ActionLink("取消，回主畫面","Index")
+ </fieldset>
+    
+  
+}
+
+  
+@*@Html.Partial("~/Views/TableDemo/Table1PartialView.cshtml" )*@
+
+@*@Html.Action("Partial",Table1s)*@

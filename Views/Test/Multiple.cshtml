@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Multiple";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+}
+
+<h2>練習多選題的程式</h2>
+
+<h1>@ViewBag.ans1</h1>
+<h1>@ViewBag.ans2</h1>
+
+@section submenu{
+    @Html.ActionLink("單選題","Single","Test") <br />
+    @Html.ActionLink("複選題","Multiple","Test") <br />
+
+    <br />
+
+     @Html.ActionLink("單選題Model","Single","Test2") <br />
+    @Html.ActionLink("複選題Model","Multiple","Test2") <br />
+}
+
+
+@using (Html.BeginForm())
+{
+       
+  @:一、桃園三結義是哪三位? <br />
+  @:劉備  @Html.CheckBox("c11") <br />
+  @:關公  @Html.CheckBox("c12") <br />
+  @:張非  @Html.CheckBox("c13") <br />
+  @:孔明  @Html.CheckBox("c14") <br />
+    
+    <br />
+    
+  @:二、南台科大有哪些科系? <br />
+  @:資管系  @Html.CheckBox("c21") <br />
+  @:電子系  @Html.CheckBox("c22") <br />
+  @:土木系  @Html.CheckBox("c23") <br />
+  @:視覺傳達系  @Html.CheckBox("c24") <br />
+
+    
+    <br />
+    
+    <input type="submit" />
+}

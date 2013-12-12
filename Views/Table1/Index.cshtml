@@ -1,0 +1,90 @@
+﻿@model MvcDemo7_2.Models.Table1 
+
+@{
+    ViewBag.Title = "Table1";
+    Layout = "~/Views/Shared/_LayoutDemo.cshtml";
+
+    var Table1s = ViewBag.table1s as List<MvcDemo7_2.Models.Table1>;
+}
+
+<h2>Table1 表格新增、刪除、修改的功能</h2>
+
+
+@section submenu{
+    @UIHelper.Submenu()
+}
+
+
+
+@using (Html.BeginForm("Create","Table1"))
+{
+    <fieldset>
+    <legend>新增 --- 單筆資料輸入</legend>
+    
+    @Html.LabelFor(m=>m.TInt) <br />
+    @Html.EditorFor(m=>m.TInt) <br />
+    
+   @Html.LabelFor(m=>m.TString) <br /> 
+    @Html.TextBoxFor(m=>m.TString) <br />
+    
+     @Html.LabelFor(m=>m.TDateTime) <br />
+    @Html.EditorFor(m=>m.TDateTime) <br />
+    
+    @Html.LabelFor(m=>m.TBool ) <br />
+    @Html.EditorFor(m=>m.TBool) <br />
+
+   @Html.LabelFor(m=>m.TIntList ) <br />
+
+        @Html.DropDownListFor(m=>m.TIntList, new List<SelectListItem>(){new SelectListItem(){Value = "1",Text = "資料1"},new SelectListItem(){Value = "2",Text = "資料2"}});
+  <br />
+    
+    <input type="submit" />
+ </fieldset>
+}    
+
+@using (Html.BeginForm("Search","Table1"))
+{
+    <fieldset>
+    <legend>資料查詢</legend>
+        
+     @Html.Label("search","請輸入資料") 
+    @Html.TextBox("search") 
+    
+    <input type="submit" />
+ </fieldset>
+}  
+    
+
+@*<style type="text/css">
+.myTable { background-color:#eee;border-collapse:collapse; }
+.myTable th { background-color:#000;color:white; }
+.myTable td, .myTable th { padding:5px;border:1px solid #000; }
+</style>  *@  
+
+ @*<table  class="myTable">*@
+
+ <table  border="1">
+     <tr><th>編號Id</th><th>TInt</th><th>TString</th><th>TDateTime</th><th>TBool</th>
+         <th>TIntList</th><th>Edit</th><th>Delete</th></tr>
+     @foreach (var item in Table1s)
+     {
+         <tr>
+             <td>@item.Id </td> <td>@item.TInt  </td> <td>@item.TString  </td> <td>@item.TDateTime  </td>
+             <td>@item.TBool </td>
+             <td>@item.TIntList </td>
+             <td>@Html.ActionLink("Edit", "Edit", new {Id=item.Id })</td>
+             <td>@Html.ActionLink("刪除","Delete",new {Id=item.Id},new { onclick = "return confirm('是否確定刪除?');" }) </td>
+         </tr>
+
+     }
+     <tr></tr>
+ </table>
+
+
+
+
+
+
+
+
+
